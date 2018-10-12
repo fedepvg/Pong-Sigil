@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{ff923f93-c63c-483e-ad54-778c29a312b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Pantallas">
+      <UniqueIdentifier>{480e7e64-af6b-48b7-a6d5-6b56622e7a92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Juego">
+      <UniqueIdentifier>{110a9165-71ed-4ad7-babe-b781c1fa6a7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Objetos">
+      <UniqueIdentifier>{f95375ad-a37d-449d-af1f-a7946e22f2ee}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\Pantallas\pantallaGameOver.h">
+      <Filter>src\Pantallas</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Pantallas\pantallaJuego.h">
+      <Filter>src\Pantallas</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Pantallas\pantallaMenu.h">
+      <Filter>src\Pantallas</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Juego\juego.h">
+      <Filter>src\Juego</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Pantallas\pantallaCreditos.h">
+      <Filter>src\Pantallas</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Objetos\bola.h">
+      <Filter>src\Objetos</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Objetos\jugador.h">
+      <Filter>src\Objetos</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\vector2.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Pantallas\pantallaGameOver.cpp">
+      <Filter>src\Pantallas</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Juego\juego.cpp">
+      <Filter>src\Juego</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Pantallas\pantallaJuego.cpp">
+      <Filter>src\Pantallas</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Pantallas\pantallaMenu.cpp">
+      <Filter>src\Pantallas</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Pantallas\pantallaCreditos.cpp">
+      <Filter>src\Pantallas</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Objetos\bola.cpp">
+      <Filter>src\Objetos</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Objetos\jugador.cpp">
+      <Filter>src\Objetos</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
