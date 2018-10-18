@@ -1,4 +1,4 @@
-#include "pantallaJuego.h"
+	#include "pantallaJuego.h"
 
 #include <cmath>
 
@@ -45,11 +45,26 @@ namespace Juego {
 			return sin(calcularAnguloRebote());
 		}
 
+		bool chequearColisionJugBola(Vector2 centro, float radio, Vector2 posRec,Vector2 tamanioRec){
+			Vector2 centroRec;
+			centroRec.x = (int)(posRec.x + tamanioRec.x/ 2.0f);
+			centroRec.y = (int)(posRec.y + tamanioRec.y / 2.0f);
+
+			float dx = (float)fabs(centro.x - centroRec.x);
+			float dy = (float)fabs(centro.y - centroRec.y);
+
+			if (dx > (tamanioRec.x / 2.0f + radio)){
+				return false; 
+			}
+			if (dy > (tamanioRec.y / 2.0f + radio)){
+				return false;
+			}
+		}
+
 		void chequearColisiones() {
 			//bola con jugador
 			for (int i = 0; i < cantJug; i++) {
-				if (CheckCollisionCircleRec(bola.pos, bola.radio,
-					{ jugador[i].pos.x, jugador[i].pos.y, jugador[i].tamanio.x, jugador[i].tamanio.y })) {
+				if (chequearColisionJugBola(bola.pos, bola.radio,jugador[i].pos,jugador[i].tamanio)) {
 					puntoImpactoY = bola.pos.y-jugador[i].pos.y;
 					if (turno != i) {	//chequeo que sea el turno para no repetir colision
 						if (i == 0) {

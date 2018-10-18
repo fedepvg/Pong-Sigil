@@ -42,7 +42,6 @@ namespace Juego {
 
 		void dibujarJug() {
 			for (int i = 0; i < cantJug; i++) {
-				//DrawRectangleV(jugador[i].pos, jugador[i].tamanio, BLACK);
 				slSetForeColor(1.0,1.0,1.0,1.0);
 				slRectangleFill(jugador[i].pos.x, jugador[i].pos.y, jugador[i].tamanio.x, jugador[i].tamanio.y);
 			}

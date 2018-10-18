@@ -26,7 +26,7 @@ namespace Juego {
 				fase = juego;
 				crearBola();
 				int angMaximoInicial = 100;
-				float anguloInicial = (rand() % (angMaximoInicial * 2)) - angMaximoInicial;//(float)GetRandomValue(-angMaximoInicial, angMaximoInicial) / 100;
+				float anguloInicial = (rand() % (angMaximoInicial * 2)) - angMaximoInicial;
 				int multiplicador = 1;
 				do {
 					multiplicador = rand()%2-1;
@@ -42,8 +42,8 @@ namespace Juego {
 		}
 
 		void dibujarBola() {
-			slSetForeColor(1.0,0.0, 0.0, 0.0);
-			slCircleFill(bola.pos.x, bola.pos.y, bola.radio, 0);
+			slSetForeColor(1.0, 0.0, 0.0, 1.0);
+			slCircleFill(bola.pos.x, bola.pos.y, bola.radio, 100);
 		}
 	}
 }
