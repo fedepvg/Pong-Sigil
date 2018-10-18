@@ -29,15 +29,15 @@ namespace Juego {
 		}
 
 		void moverJug() {
-			if (slGetKey(SL_KEY_UP) != 0) jugador[1].pos.y -= velocidadJug * slGetDeltaTime();
-			if ((jugador[1].pos.y) <= 0) jugador[1].pos.y = 0;
-			if (slGetKey(SL_KEY_DOWN ) != 0) jugador[1].pos.y += velocidadJug * slGetDeltaTime();
-			if ((jugador[1].pos.y + jugador[1].tamanio.y) >= altoPantalla) jugador[1].pos.y = altoPantalla - jugador[1].tamanio.y;
+			if (slGetKey(SL_KEY_UP) != 0) jugador[1].pos.y += velocidadJug * slGetDeltaTime();
+			if ((jugador[1].pos.y + jugador[1].tamanio.y / 2) >= altoPantalla) jugador[1].pos.y = altoPantalla - jugador[1].tamanio.y / 2;
+			if (slGetKey(SL_KEY_DOWN ) != 0) jugador[1].pos.y -= velocidadJug * slGetDeltaTime();
+			if ((jugador[1].pos.y - jugador[1].tamanio.y / 2) <= 0) jugador[1].pos.y = 0 + jugador[1].tamanio.y / 2;
 
-			if (slGetKey(119) != 0|| slGetKey(87) != 0) jugador[0].pos.y -= velocidadJug * slGetDeltaTime();
-			if ((jugador[0].pos.y) <= 0) jugador[0].pos.y = 0;
-			if (slGetKey(83) != 0 || slGetKey(115) != 0) jugador[0].pos.y += velocidadJug * slGetDeltaTime();
-			if ((jugador[0].pos.y + jugador[0].tamanio.y) >= altoPantalla) jugador[0].pos.y = altoPantalla - jugador[0].tamanio.y;
+			if (slGetKey(119) != 0|| slGetKey(87) != 0) jugador[0].pos.y += velocidadJug * slGetDeltaTime();		//arriba
+			if ((jugador[0].pos.y + jugador[0].tamanio.y/2) >= altoPantalla) jugador[0].pos.y = altoPantalla - jugador[0].tamanio.y / 2;
+			if (slGetKey(83) != 0 || slGetKey(115) != 0) jugador[0].pos.y -= velocidadJug * slGetDeltaTime();		//abajo
+			if ((jugador[0].pos.y - jugador[0].tamanio.y / 2) <= 0) jugador[0].pos.y = 0 + jugador[0].tamanio.y / 2;
 		}
 
 		void dibujarJug() {

@@ -25,7 +25,7 @@ namespace Juego {
 			if (fase == inicio) {
 				fase = juego;
 				crearBola();
-				int angMaximoInicial = 100;
+				int angMaximoInicial = 50;
 				float anguloInicial = (rand() % (angMaximoInicial * 2)) - angMaximoInicial;
 				int multiplicador = 1;
 				do {

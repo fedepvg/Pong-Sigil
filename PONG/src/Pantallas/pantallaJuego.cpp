@@ -24,9 +24,9 @@ namespace Juego {
 		const int topeGoles = 7;
 		float puntoImpactoY = 0.0f;
 		float angMaximoRad = 0.85f;
-		/*Sound golpe;
-		Sound rebote;
-		Sound gol;*/
+		int golpe;
+		int rebote;
+		int gol;
 		static bool desinicializar = false;
 		static int opcionElegida = 0;
 		
@@ -34,7 +34,7 @@ namespace Juego {
 			//			regla de 3----> punto de impacto positivo o negativo * ang max / punto de impacto p/ese angulo
 			//					PN------ANG MAX
 			//					PI------??
-			return (puntoImpactoY - tamanioYJug / 2)*angMaximoRad / (tamanioYJug / 2);
+			return (puntoImpactoY) * angMaximoRad / (tamanioYJug / 2);
 		}
 
 		float calcularReboteX() {
@@ -46,12 +46,8 @@ namespace Juego {
 		}
 
 		bool chequearColisionJugBola(Vector2 centro, float radio, Vector2 posRec,Vector2 tamanioRec){
-			Vector2 centroRec;
-			centroRec.x = (int)(posRec.x + tamanioRec.x/ 2.0f);
-			centroRec.y = (int)(posRec.y + tamanioRec.y / 2.0f);
-
-			float dx = (float)fabs(centro.x - centroRec.x);
-			float dy = (float)fabs(centro.y - centroRec.y);
+			float dx = (float)fabs(centro.x - posRec.x);
+			float dy = (float)fabs(centro.y - posRec.y);
 
 			if (dx > (tamanioRec.x / 2.0f + radio)){
 				return false; 
@@ -77,7 +73,7 @@ namespace Juego {
 
 							bola.velocidad.x += 50.0;
 							bola.velocidad.y += 50.0;
-							//PlaySound(golpe);
+							slSoundPlay(golpe);
 							turno = i;
 					}
 				}
@@ -85,7 +81,7 @@ namespace Juego {
 			//bola con bordes
 			if (bola.pos.y + bola.radio >= altoPantalla || bola.pos.y - bola.radio <= 0)
 			{
-				//PlaySound(rebote);
+				slSoundPlay(rebote);
 				bola.aceleracion.y = bola.aceleracion.y * -1;
 				if (bola.pos.y + bola.radio >= altoPantalla) {
 					bola.pos.y -= bola.radio;
@@ -97,7 +93,7 @@ namespace Juego {
 			//goles
 			if (bola.pos.x + bola.radio >= anchoPantalla)
 			{
-				//PlaySound(gol);
+				slSoundPlay(gol);
 				fase = inicio;
 				turno = 2;
 				jugador[0].goles++;
@@ -105,7 +101,7 @@ namespace Juego {
 			else {
 				if (bola.pos.x - bola.radio <= 0)
 				{
-					//PlaySound(gol);
+					slSoundPlay(gol);
 					fase = inicio;
 					turno = 2;
 					jugador[1].goles++;
@@ -174,9 +170,9 @@ namespace Juego {
 
 		void inicializarPantJuego() {
 			if (!estaInicializado) {
-			/*	golpe = LoadSound("res/golpe.wav");
-				rebote = LoadSound("res/rebote.wav");
-				gol = LoadSound("res/gol.wav");*/
+				golpe = slLoadWAV("res/golpe.wav");
+				rebote = slLoadWAV("res/rebote.wav");
+				gol =  slLoadWAV("res/gol.wav");	
 
 				inicializarJug();
 			}
@@ -185,9 +181,7 @@ namespace Juego {
 
 		void desinicializarPantJuego(){
 			if (desinicializar) {
-				/*UnloadSound(golpe);
-				UnloadSound(rebote);
-				UnloadSound(gol);*/
+
 			}
 		}
 	}

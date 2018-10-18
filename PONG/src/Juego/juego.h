@@ -6,6 +6,7 @@ namespace Juego {
 	extern int anchoPantalla;
 	extern int altoPantalla;
 	extern bool enJuego;
+	extern int fuente;
 
 	void ejecutar();
 }

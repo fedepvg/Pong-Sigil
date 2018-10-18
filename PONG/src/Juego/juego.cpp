@@ -23,10 +23,12 @@ namespace Juego {
 	int anchoPantalla = 900;
 	int altoPantalla = 600;
 	bool enJuego = true;
+	int fuente;
 
 	void inicializarJuego() {
 		srand(time(0));
 		slWindow(anchoPantalla, altoPantalla, "PONG",0);
+		fuente=slLoadFont("res/fuente.ttf");
 	}
 
 	void inicializarPantallas(){
