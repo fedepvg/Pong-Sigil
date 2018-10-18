@@ -101,7 +101,7 @@ namespace Juego {
 		
 		inicializarJuego();
 
-		while (enJuego){
+		while (enJuego && !slShouldClose()){
 			inicializarPantallas();
 			actualizar();
 			dibujar();

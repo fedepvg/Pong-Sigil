@@ -9,8 +9,8 @@ namespace Juego {
 
 		void dibujarCreditos() {
 			double tamanioTitulo = (altoPantalla*anchoPantalla)*0.0190 / 100.0;
-			double tamanioSubtitulos = (altoPantalla*anchoPantalla)*0.0092 / 100.0;
-			double tamanioVersion = (altoPantalla*anchoPantalla)*0.0052 / 100.0;
+			double tamanioSubtitulos = (altoPantalla*anchoPantalla)*0.0048 / 100.0;
+			double tamanioVolver = (altoPantalla*anchoPantalla)*0.0027 / 100.0;
 			char titulo[] = "Creditos";
 			char subt1[] = "Hecho con la libreria Raylib";
 			char subt2[] = "Programador: Federico van Gelderen";
@@ -18,13 +18,20 @@ namespace Juego {
 			char subt4[] = "Musica: Bosca Ceoil, Music Maker";
 			char version[] = "PONG v1.0";
 			char volver[] = "Pulse M para volver al menu";
-			/*DrawText(titulo, (GetScreenWidth() - MeasureText(titulo, tamanioTitulo)) / 2, 0, tamanioTitulo, DARKGRAY);
-			DrawText(subt1, (GetScreenWidth() - MeasureText(subt1, tamanioSubtitulos)) / 2, GetScreenHeight() *20 /100, tamanioSubtitulos, DARKGRAY);
-			DrawText(subt2, (GetScreenWidth() - MeasureText(subt2, tamanioSubtitulos)) / 2, GetScreenHeight() *40 /100 - tamanioSubtitulos, tamanioSubtitulos, DARKGRAY);
-			DrawText(subt3, (GetScreenWidth() - MeasureText(subt3, tamanioSubtitulos)) / 2, GetScreenHeight() *60 /100 - tamanioSubtitulos, tamanioSubtitulos, DARKGRAY);
-			DrawText(subt4, (GetScreenWidth() - MeasureText(subt4, tamanioSubtitulos)) / 2, GetScreenHeight() *80/100 - tamanioSubtitulos, tamanioSubtitulos, DARKGRAY);
-			DrawText(version, GetScreenWidth() - MeasureText(version, tamanioVersion), 0+ tamanioVersion, (int)tamanioVersion, DARKGRAY);
-			DrawText(volver, (GetScreenWidth() - MeasureText(volver, tamanioSubtitulos))/2, GetScreenHeight() - tamanioSubtitulos, tamanioSubtitulos, DARKGRAY);*/
+
+			slSetFont(fuente, tamanioTitulo);
+			slSetTextAlign(SL_ALIGN_CENTER);
+			slSetForeColor(1.0, 1.0, 1.0, 1.0);
+			slText(anchoPantalla / 2, altoPantalla / 2, titulo);
+			slSetFontSize(tamanioSubtitulos);
+			slText(anchoPantalla / 2, altoPantalla * 40 / 100, subt1);
+			slText(anchoPantalla / 2, altoPantalla * 30 / 100, subt2);
+			slText(anchoPantalla / 2, altoPantalla * 20 / 100, subt3);
+			slText(anchoPantalla / 2, altoPantalla * 10 / 100, subt4);
+			slSetTextAlign(SL_ALIGN_RIGHT);
+			slText(anchoPantalla, altoPantalla - tamanioSubtitulos, version);
+			slSetFontSize(tamanioVolver);
+			slText(anchoPantalla, 0, volver);
 		}
 
 		void actualizarCreditos() {

@@ -27,29 +27,22 @@ namespace Juego {
 
 		void dibujarMenu() {
 			double tamanioTitulo = (altoPantalla*anchoPantalla)*0.0190 / 100;
-			double tamanioSubtitulos = (altoPantalla*anchoPantalla)*0.0092 / 100;
-			double tamanioVersion = (altoPantalla*anchoPantalla)*0.0052 / 100.0;
+			double tamanioSubtitulos = (altoPantalla*anchoPantalla)*0.0048 / 100;
 			char titulo[] = "PONG";
 			char subt1[] = "Para empezar, presione Enter";
 			char subt2[] = "Para ver los creditos, presione C";
 			char subt3[] = "Para salir, presione Q";
 			char version[] = "PONG v1.0";
-			slSetFont(fuente, 50);
+			slSetFont(fuente, tamanioTitulo);
 			slSetTextAlign(SL_ALIGN_CENTER);
 			slSetForeColor(1.0, 1.0, 1.0, 1.0);
 			slText(anchoPantalla/2,altoPantalla/2,titulo);
-			slSetFont(fuente, 25);
+			slSetFontSize(tamanioSubtitulos);
 			slText(anchoPantalla / 2, altoPantalla * 30 / 100,subt1);
 			slText(anchoPantalla / 2, altoPantalla * 20 / 100,subt2);
 			slText(anchoPantalla / 2, altoPantalla * 10 / 100,subt3);
 			slSetTextAlign(SL_ALIGN_RIGHT);
-			slText(anchoPantalla,0,version);
-
-			/*DrawText(titulo,(GetScreenWidth() -MeasureText(titulo,tamanioTitulo))/2, (GetScreenHeight() -tamanioTitulo) / 2, tamanioTitulo, DARKGRAY);
-			DrawText(subt1, 0+tamanioSubtitulos, GetScreenHeight() -tamanioSubtitulos*3, tamanioSubtitulos, DARKGRAY);
-			DrawText(subt2, 0 + tamanioSubtitulos, GetScreenHeight() - tamanioSubtitulos*2, tamanioSubtitulos, DARKGRAY);
-			DrawText(subt3, 0+tamanioSubtitulos, GetScreenHeight() -tamanioSubtitulos, tamanioSubtitulos, DARKGRAY);
-			DrawText(version, GetScreenWidth() - MeasureText(version, tamanioVersion), 0 + tamanioVersion, (int)tamanioVersion, DARKGRAY);*/
+			slText(anchoPantalla,altoPantalla-tamanioSubtitulos,version);
 		}
 		
 		void actualizarMenu() {

@@ -126,14 +126,81 @@ namespace Juego {
 			char instruccJ1[] = "Jugador 1 se mueve con W y S";
 			char instruccJ2[] = "Jugador 2 se mueve con las flechas";
 			char menu[] = "Pulse M para volver al menu";
+			char golesJ1[] = {(char)(jugador[0].goles) };
+			char golesJ2[] = { (char)(jugador[1].goles) };
 
-			const double tamanioLetras = (altoPantalla*anchoPantalla)*0.0037/100;
-			const double tamanioNum = (altoPantalla*anchoPantalla)*0.0092/100;
-			/*DrawText(instruccJ1, 0+tamanioLetras, GetScreenHeight() - tamanioLetras*2, tamanioLetras, DARKGRAY);
-			DrawText(instruccJ2, 0+tamanioLetras, GetScreenHeight() -tamanioLetras, tamanioLetras, DARKGRAY);
-			DrawText(menu, GetScreenWidth() - MeasureText(menu,tamanioLetras), GetScreenHeight() - tamanioLetras, tamanioLetras, DARKGRAY);
-			DrawText(FormatText("%i", jugador[0].goles), GetScreenWidth() / 3, 0, tamanioNum, DARKGRAY);
-			DrawText(FormatText("%i", jugador[1].goles), (GetScreenWidth() / 3) * 2, 0, tamanioNum, DARKGRAY);*/
+			const double tamanioLetras = (altoPantalla*anchoPantalla)*0.0027/100;
+			const double tamanioNum = (altoPantalla*anchoPantalla)*0.0062/100;
+
+			slSetFont(fuente, tamanioLetras);
+			slSetTextAlign(SL_ALIGN_LEFT);
+			slSetForeColor(1.0, 1.0, 1.0, 1.0);
+			slText(0, 0 + tamanioLetras, instruccJ1);
+			slText(0, 0, instruccJ2);
+			slSetTextAlign(SL_ALIGN_CENTER);
+			slSetFontSize(tamanioNum);
+			for (int i = 0; i < cantJug; i++) {
+				if (i == 0) {
+					switch (jugador[i].goles) {
+					case 0:
+						slText(anchoPantalla*0.3, altoPantalla - tamanioNum, "0");
+						break;
+					case 1:
+						slText(anchoPantalla*0.3, altoPantalla - tamanioNum, "1");
+						break;
+					case 2:
+						slText(anchoPantalla*0.3, altoPantalla - tamanioNum, "2");
+						break;
+					case 3:
+						slText(anchoPantalla*0.3, altoPantalla - tamanioNum, "3");
+						break;
+					case 4:
+						slText(anchoPantalla*0.3, altoPantalla - tamanioNum, "4");
+						break;
+					case 5:
+						slText(anchoPantalla*0.3, altoPantalla - tamanioNum, "5");
+						break;
+					case 6:
+						slText(anchoPantalla*0.3, altoPantalla - tamanioNum, "6");
+						break;
+					case 7:
+						slText(anchoPantalla*0.3, altoPantalla - tamanioNum, "7");
+						break;
+					}
+				}else {
+					switch (jugador[i].goles) {
+					case 0:
+						slText(anchoPantalla*0.7, altoPantalla - tamanioNum, "0");
+						break;
+					case 1:
+						slText(anchoPantalla*0.7, altoPantalla - tamanioNum, "1");
+						break;
+					case 2:
+						slText(anchoPantalla*0.7, altoPantalla - tamanioNum, "2");
+						break;
+					case 3:
+						slText(anchoPantalla*0.7, altoPantalla - tamanioNum, "3");
+						break;
+					case 4:
+						slText(anchoPantalla*0.7, altoPantalla - tamanioNum, "4");
+						break;
+					case 5:
+						slText(anchoPantalla*0.7, altoPantalla - tamanioNum, "5");
+						break;
+					case 6:
+						slText(anchoPantalla*0.7, altoPantalla - tamanioNum, "6");
+						break;
+					case 7:
+						slText(anchoPantalla*0.7, altoPantalla - tamanioNum, "7");
+						break;
+					}
+				}
+				
+			}
+
+			slSetFontSize(tamanioLetras);
+			slSetTextAlign(SL_ALIGN_RIGHT);
+			slText(anchoPantalla,0,menu);
 
 			dibujarJug();
 			dibujarBola();

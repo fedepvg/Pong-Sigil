@@ -25,11 +25,12 @@ namespace Juego {
 			if (fase == inicio) {
 				fase = juego;
 				crearBola();
-				int angMaximoInicial = 50;
+				int angMaximoInicial = 80;
 				float anguloInicial = (rand() % (angMaximoInicial * 2)) - angMaximoInicial;
 				int multiplicador = 1;
 				do {
-					multiplicador = rand()%2-1;
+					multiplicador = rand()%3-1;
+					anguloInicial *= 3.14 / 180;
 					bola.aceleracion.x = multiplicador * cos(anguloInicial);
 				} while (multiplicador == 0);
 

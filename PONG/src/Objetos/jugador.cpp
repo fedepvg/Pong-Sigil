@@ -19,7 +19,7 @@ namespace Juego {
 				jugador[numJug].pos = { 0 + tamanioXJug, ((float)altoPantalla - tamanioYJug) / 2 };
 			}
 			else {
-				jugador[numJug].pos = { (float)anchoPantalla - 2 * tamanioXJug, ((float)altoPantalla - tamanioYJug) / 2 };
+				jugador[numJug].pos = { (float)anchoPantalla - tamanioXJug, ((float)altoPantalla - tamanioYJug) / 2 };
 			}
 
 			jugador[numJug].tamanio = { tamanioXJug, tamanioYJug };
