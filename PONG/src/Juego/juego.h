@@ -7,6 +7,9 @@ namespace Juego {
 	extern int altoPantalla;
 	extern bool enJuego;
 	extern int fuente;
+	extern int golpe;
+	extern int rebote;
+	extern int gol;
 
 	void ejecutar();
 }

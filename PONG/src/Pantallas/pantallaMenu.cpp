@@ -6,24 +6,6 @@
 namespace Juego {
 	namespace Menu {
 		using namespace Juego;
-		static bool estaInicializado = false;
-		static bool desinicializar = false;
-		//int musica;
-		static int opcionElegida = 0;
-
-		void inicializarMenu() {
-			if (!estaInicializado) {
-				//musica =  slLoadWAV("res/musica.wav");
-			}
-			estaInicializado = true;
-		}
-
-		void desinicializarMenu() {
-			if (desinicializar) {
-				//StopMusicStream(musica);
-				//UnloadMusicStream(musica);
-			}
-		}
 
 		void dibujarMenu() {
 			double tamanioTitulo = (altoPantalla*anchoPantalla)*0.0190 / 100;
@@ -46,47 +28,15 @@ namespace Juego {
 		}
 		
 		void actualizarMenu() {
-			if (!desinicializar) {
-				//slSoundLoop(musica);
-				//PlayMusicStream(musica);
-				//UpdateMusicStream(musica);
-			}
 			
-			if (slGetKey(SL_KEY_ENTER) != 0 ||opcionElegida==SL_KEY_ENTER) {
-				if (!desinicializar) {
-					desinicializar = true;
-					opcionElegida = SL_KEY_ENTER;
-				}
-				else {
+			if (slGetKey(SL_KEY_ENTER) != 0) {
 					estado = partida;
-					estaInicializado = false;
-					desinicializar = false;
-					opcionElegida = 0;
-				}
 			}
-			if (slGetKey(81) != 0 || slGetKey(113) != 0 || opcionElegida == 81|| opcionElegida == 113) {
-				if (!desinicializar) {
-					desinicializar = true;
-					opcionElegida = 81;
-				}
-				else {
+			if (slGetKey(81) != 0 || slGetKey(113) != 0 ) {
 					enJuego = false;
-					estaInicializado = false;
-					desinicializar = false;
-					opcionElegida = 0;
-				}
 			}
-			if (slGetKey(67) != 0 || slGetKey(99) != 0 ||opcionElegida== 67|| opcionElegida == 99) {
-				if (!desinicializar) {
-					desinicializar = true;
-					opcionElegida = 99;
-				}
-				else {
+			if (slGetKey(67) != 0 || slGetKey(99) != 0) {
 					estado = creditos;
-					estaInicializado = false;
-					desinicializar = false;
-					opcionElegida = 0;
-				}
 			}
 		}
 	}

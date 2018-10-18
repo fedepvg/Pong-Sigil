@@ -15,7 +15,6 @@ namespace Juego {
 	static void inicializarPantallas();
 	static void actualizar();
 	static void dibujar();
-	static void desInicializarPantallas();
 	static void desinicializarJuego();
 
 	using namespace PantallaJuego;
@@ -24,18 +23,21 @@ namespace Juego {
 	int altoPantalla = 600;
 	bool enJuego = true;
 	int fuente;
+	int golpe;
+	int rebote;
+	int gol;
 
 	void inicializarJuego() {
 		srand(time(0));
 		slWindow(anchoPantalla, altoPantalla, "PONG",0);
 		fuente=slLoadFont("res/fuente.ttf");
+		golpe = slLoadWAV("res/golpe.wav");
+		rebote = slLoadWAV("res/rebote.wav");
+		gol = slLoadWAV("res/gol.wav");
 	}
 
 	void inicializarPantallas(){
 		switch (estado) {
-		case menu:
-			Menu::inicializarMenu();
-			break;
 		case juego:
 			inicializarPantJuego();
 			break;
@@ -81,18 +83,6 @@ namespace Juego {
 		slRender();
 	}
 
-	void desInicializarPantallas() {
-		switch (estado) {
-		case menu:
-			Menu::desinicializarMenu();
-			break;
-		case juego:
-			desinicializarPantJuego();
-			break;
-		default:break;
-		}
-	}
-
 	void desinicializarJuego() {
 		slClose();
 	}
@@ -105,7 +95,6 @@ namespace Juego {
 			inicializarPantallas();
 			actualizar();
 			dibujar();
-			desInicializarPantallas();
 		}
 
 		desinicializarJuego();

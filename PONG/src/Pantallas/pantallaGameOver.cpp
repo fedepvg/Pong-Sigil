@@ -26,9 +26,6 @@ namespace Juego {
 			slSetFontSize(tamanioSub);
 			slText(anchoPantalla / 2, altoPantalla * 30 / 100, subt1);
 			slText(anchoPantalla / 2, altoPantalla * 20 / 100, subt2);
-			/*DrawText(FormatText("GANADOR: JUGADOR %i",PantallaJuego::jugGanador), (GetScreenWidth() -MeasureText(ganador,tamanioTitulo))/2, (GetScreenHeight() -tamanioTitulo) / 2, tamanioTitulo, DARKGRAY);
-			DrawText(subt1, GetScreenWidth() /9, (GetScreenHeight() /3)*2, tamanioSub, DARKGRAY);
-			DrawText(subt2, GetScreenWidth() /9, (GetScreenHeight() / 12)*10 , tamanioSub, DARKGRAY);*/
 		}
 		
 		void actualizarGO() {	

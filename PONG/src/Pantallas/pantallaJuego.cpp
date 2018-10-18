@@ -24,11 +24,6 @@ namespace Juego {
 		const int topeGoles = 7;
 		float puntoImpactoY = 0.0f;
 		float angMaximoRad = 0.85f;
-		int golpe;
-		int rebote;
-		int gol;
-		static bool desinicializar = false;
-		static int opcionElegida = 0;
 		
 		float calcularAnguloRebote() {
 			//			regla de 3----> punto de impacto positivo o negativo * ang max / punto de impacto p/ese angulo
@@ -211,45 +206,21 @@ namespace Juego {
 			moverBola();
 			chequearColisiones();
 			if (chequearResultado()) {
-				if (!desinicializar) {
-					desinicializar = true;
-				}
-				else {
-					fase = fin;
-					estado = gameOver;
-					estaInicializado = false;
-					desinicializar = false;
-				}
+				fase = fin;
+				estado = gameOver;
+				estaInicializado = false;
 			}
-			if (slGetKey(77) != 0 || slGetKey(109) != 0 ||opcionElegida==77||opcionElegida==109) {
-				if (!desinicializar) {
-					desinicializar = true;
-					opcionElegida = 77;
-				}
-				else {
-					estado = menu;
-					estaInicializado = false;
-					desinicializar = false;
-					opcionElegida = 0;
-				}
+			if (slGetKey(77) != 0 || slGetKey(109) != 0 ) {
+				estado = menu;
+				estaInicializado = false;
 			}
 		}
 
 		void inicializarPantJuego() {
 			if (!estaInicializado) {
-				golpe = slLoadWAV("res/golpe.wav");
-				rebote = slLoadWAV("res/rebote.wav");
-				gol =  slLoadWAV("res/gol.wav");	
-
 				inicializarJug();
 			}
 			estaInicializado = true;
-		}
-
-		void desinicializarPantJuego(){
-			if (desinicializar) {
-
-			}
 		}
 	}
 }
